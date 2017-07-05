@@ -41,6 +41,7 @@ class Board
     move_array = move.map(&:to_i)
 
     #correct = right + wrong
+    #non viable, works without duplications, need to write another code for correct
     correct = (code_array & move_array)
     right = 0
     move_array.each_with_index do |cell, index|
@@ -107,6 +108,10 @@ class Board
         return
       end
       current_row += 1
+      if current_row > 11
+        puts "Sorry, you lost"
+        return
+      end
     end
   end
 end
